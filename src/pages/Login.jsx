@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "../assets/icons/GoogleIcon";
-import { signIn, signUpWithGoogle } from "../auth/firebase";
+import {forgotPassword, signIn, signUpWithGoogle } from "../auth/firebase";
 
 const Login = () => {
   //! Ayrı stateler
@@ -28,9 +28,7 @@ const Login = () => {
     console.log(email, password);
   };
 
-  const forgotPassword = (email) => {
-    console.log(email);
-  };
+ 
 
   const handleGoogleProvider = ()=>{
     signUpWithGoogle(navigate)
@@ -45,13 +43,13 @@ const Login = () => {
         />
       </div>
 
-      <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
+      <div className="overflow-hidden flex-1 h-screen justify-center items-center dark:bg-[#23242a]">
         <div
-          className={`mt-[10vh] mx-auto overflow-hidden relative w-[380px] h-[500px] rounded-[8px] bg-[#1c1c1c] before:content-[""] before:absolute before:w-[380px] before:h-[420px] before:top-[-50%] before:left-[-50%] after:content-[""] after:absolute after:w-[380px] after:h-[420px] after:top-[-50%] after:left-[-50%] custom-linear-gradient`}
+          className={`mt-[10vh] mx-auto overflow-hidden relative w-[380px] h-[500px] rounded-[8px] dark:bg-[#1c1c1c] before:content-[""] before:absolute before:w-[380px] before:h-[420px] before:top-[-50%] before:left-[-50%] after:content-[""] after:absolute after:w-[380px] after:h-[420px] after:top-[-50%] after:left-[-50%] custom-linear-gradient`}
         >
           <form
             onSubmit={handleSubmit}
-            className="absolute inset-[2px] rounded-[8px] bg-[#28292d] z-[10] form flex flex-col p-20"
+            className="absolute inset-[2px] rounded-[8px] dark:bg-[#28292d] z-[10] form flex flex-col p-20"
           >
             <h2 className="text-[#ff4b45] text-2xl font-[500] text-center tracking-[0.1em]">
               Sign In

@@ -12,6 +12,12 @@ const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${API_
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
 
 const Main = () => {
+  // if () {
+  //   document.documentElement.classList.add("dark");
+  // } else {
+  //   document.documentElement.classList.remove("dark");
+  // }
+
   const [movies, setMovies] = useState([]);
   const [seacrhTherm, setSeacrhTherm] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,7 +27,7 @@ const Main = () => {
   console.log(page);
   const AVERAGE = `
   https://api.themoviedb.org/3/discover/movie?api_key=3ae99fcb249d40519289af2feb3212b9&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte=`;
-  
+
   console.log(movies);
   const getMovies = (API) => {
     setLoading(true);
@@ -62,7 +68,9 @@ const Main = () => {
     }
   };
   const handlePrev = () => {
-    page && setPage(page - 1);
+    if (page > 1) {
+      setPage(page - 1);
+    }
   };
   const handleNext = () => {
     setPage(page + 1);
@@ -79,7 +87,7 @@ const Main = () => {
             onChange={(e) => setSeacrhTherm(e.target.value)}
           />
 
-          <button className="text-white" type="submit">
+          <button className="dark:text-white" type="submit">
             Search
           </button>
         </form>
@@ -95,7 +103,7 @@ const Main = () => {
             <option value="7">Up 7</option>
             <option value="6">Up 6</option>
           </select>
-          <button className="text-white" onClick={handleFilter}>
+          <button className="dark:text-white" onClick={handleFilter}>
             Filter
           </button>
         </form>
@@ -108,9 +116,8 @@ const Main = () => {
         </div>
         <div className="flex justify-center ">
           <button
-            class="bg-gray-300  hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l   "
+            class="bg-gray-300   hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l  prev "
             onClick={handlePrev}
-       
           >
             Prev
           </button>

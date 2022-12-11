@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
 
 const Switch = () => {
-  const [darkMode, setDarkMode] = useState(true);
-
+  const [darkMode, setDarkMode] = useState(true)
+ 
+console.log(darkMode);
   if (darkMode) {
     document.documentElement.classList.add("dark");
   } else {
